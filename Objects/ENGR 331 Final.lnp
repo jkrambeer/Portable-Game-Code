@@ -1,0 +1,13 @@
+--cpu Cortex-M4.fp
+".\objects\lcd.o"
+".\objects\audio.o"
+".\objects\main.o"
+".\objects\map.o"
+".\objects\power.o"
+".\objects\game.o"
+".\objects\startup_stm32f407xx.o"
+".\objects\system_stm32f4xx.o"
+--strict --scatter ".\Objects\ENGR 331 Final.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\ENGR 331 Final.map" -o ".\Objects\ENGR 331 Final.axf"
