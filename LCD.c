@@ -53,22 +53,22 @@ void TFT_init()
 {
 	
 	GPIOE->ODR &= ~0x00000008;		// CS LOW
-	GPIOE->ODR |= 0x00000004;			// RD HIGH
+	GPIOE->ODR |= 0x00000004;		// RD HIGH
 	GPIOE->ODR &= ~0x00000000;		// WR LOW
 	
 	GPIOE->ODR &= ~0x00000010;		// RES LOW (start hard reset)
 	delay_ms(5);
 	delay_ms(10);
 	
-	GPIOE->ODR |= 0x00000010;			// RES HIGH (finish hard reset)
+	GPIOE->ODR |= 0x00000010;		// RES HIGH (finish hard reset)
 	delay_ms(100);
 	
 	delay_ms(10);
-	TFT_writeCMD(0x01);						// soft_reset
+	TFT_writeCMD(0x01);				// soft_reset
 	delay_ms(10);
 	
 	delay_ms(10);
-	TFT_writeCMD(0x01);						// soft_reset
+	TFT_writeCMD(0x01);				// soft_reset
 	delay_ms(10);
 	
 	// Start and Lock PLL
@@ -150,23 +150,23 @@ void TFT_writeCMD(char COMMAND)
 	GPIOE->ODR &= ~0x00000001;	// Bring RS LOW
 	GPIOE->ODR &= ~0x00000002;	// Bring WR LOW
 
-	GPIOD->ODR = COMMAND;				// Fill port D with COMMAND
+	GPIOD->ODR = COMMAND;		// Fill port D with COMMAND
 	
-	GPIOE->ODR |= 0x00000008;		// CS HIGH
-	GPIOE->ODR |= 0x00000002;		// Bring WR HIGH
-	GPIOE->ODR |= 0x00000001;		// Bring RS HIGH
+	GPIOE->ODR |= 0x00000008;	// CS HIGH
+	GPIOE->ODR |= 0x00000002;	// Bring WR HIGH
+	GPIOE->ODR |= 0x00000001;	// Bring RS HIGH
 }//TFT_writeCMD
 
 void TFT_writeDATA(char DATA)
 {
 	GPIOE->ODR &= ~0x00000008;	// CS LOW
-	GPIOE->ODR |= 0x00000001;		// Bring RS HIGH
+	GPIOE->ODR |= 0x00000001;	// Bring RS HIGH
 	GPIOE->ODR &= ~0x00000002;	// Bring WR LOW
 
-	GPIOD->ODR = DATA;					// Fill port D with DATA
+	GPIOD->ODR = DATA;			// Fill port D with DATA
 	
-	GPIOE->ODR |= 0x00000008;		// CS HIGH
-	GPIOE->ODR |= 0x00000002;		// Bring WR HIGH
+	GPIOE->ODR |= 0x00000008;	// CS HIGH
+	GPIOE->ODR |= 0x00000002;	// Bring WR HIGH
 }//TFT_writeDATA
 
 void TFT_windowSet(int start_x, int end_x, int start_y, int end_y)
