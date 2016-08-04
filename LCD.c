@@ -163,7 +163,7 @@ void TFT_writeDATA(char DATA)
 	GPIOE->ODR |= 0x00000001;	// Bring RS HIGH
 	GPIOE->ODR &= ~0x00000002;	// Bring WR LOW
 
-	GPIOD->ODR = DATA;			// Fill port D with DATA
+	GPIOD->ODR = DATA;		// Fill port D with DATA
 	
 	GPIOE->ODR |= 0x00000008;	// CS HIGH
 	GPIOE->ODR |= 0x00000002;	// Bring WR HIGH
