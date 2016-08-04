@@ -12,9 +12,6 @@
 #include "Map.h"       // defines map variables/types/functions to change map
 #include "Game.h"      // defines game rules and input handling
 
-#warning "Don't forget to comment all these files"
-
-
 Tile tiles[10];//used to store the tiles colors/patterns
 
 //12 high x 16 wide
